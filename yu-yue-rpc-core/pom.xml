@@ -7,10 +7,10 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>example-provider</artifactId>
+    <artifactId>yu-yue-rpc-core</artifactId>
     <packaging>jar</packaging>
 
-    <name>example-provider</name>
+    <name>yu-yue-rpc-core</name>
     <url>http://maven.apache.org</url>
 
     <properties>
@@ -23,16 +23,11 @@
             <artifactId>junit</artifactId>
             <version>3.8.1</version>
             <scope>test</scope>
-        </dependency>
+        </dependency>  <!-- https://mvnrepository.com/artifact/io.vertx/vertx-core -->
         <dependency>
-            <groupId>com.baitiao</groupId>
-            <artifactId>yu-yue-rpc-core</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
-        <dependency>
-            <groupId>com.baitiao</groupId>
-            <artifactId>example-common</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <groupId>io.vertx</groupId>
+            <artifactId>vertx-core</artifactId>
+            <version>4.5.1</version>
         </dependency>
         <!-- https://doc.hutool.cn/ -->
         <dependency>
@@ -47,5 +42,11 @@
             <version>1.18.30</version>
             <scope>provided</scope>
         </dependency>
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>1.3.12</version>
+        </dependency>
+
     </dependencies>
 </project>
