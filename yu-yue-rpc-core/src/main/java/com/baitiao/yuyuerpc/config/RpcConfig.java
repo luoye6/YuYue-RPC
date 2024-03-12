@@ -20,4 +20,8 @@ public class RpcConfig {
      * 服务器端口号
      */
     private Integer serverPort = 8080;
+    /**
+     * Mock 模拟调用 默认为 false
+     */
+    private boolean mock = false;
 }

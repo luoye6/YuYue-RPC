@@ -1,5 +1,6 @@
 package com.baitiao.yuyuerpc.utils;
 
+import cn.hutool.core.text.CharSequenceUtil;
 import cn.hutool.core.util.StrUtil;
 import cn.hutool.setting.dialect.Props;
 import io.netty.util.internal.StringUtil;
@@ -25,13 +26,13 @@ public class ConfigUtils {
      * @param <T>
      */
     public static <T> T loadConfig(Class<T> tClass,String prefix,String environment){
-        StringBuilder configBuilder = new StringBuilder("application");
-        if(StrUtil.isNotBlank(environment)){
-            configBuilder.append("-").append(environment);
+        StringBuilder configFileBuilder = new StringBuilder("application");
+        if (StrUtil.isNotBlank(environment)) {
+            configFileBuilder.append("-").append(environment);
         }
-        configBuilder.append(".properties");
-        Props props = new Props(configBuilder.toString());
-        return props.toBean(tClass,prefix);
+        configFileBuilder.append(".properties");
+        Props props = new Props(configFileBuilder.toString());
+        return props.toBean(tClass, prefix);
     }
 
 }

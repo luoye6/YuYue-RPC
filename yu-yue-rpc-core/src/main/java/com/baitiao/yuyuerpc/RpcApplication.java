@@ -14,7 +14,7 @@ public class RpcApplication {
      * @param newRpcConfig
      */
     public static void init(RpcConfig newRpcConfig){
-        rpcConfig = new RpcConfig();
+        rpcConfig = newRpcConfig;
         log.info("rpc init,config = {}",newRpcConfig.toString());
     }
 
@@ -27,6 +27,7 @@ public class RpcApplication {
             newRpcConfig = ConfigUtils.loadConfig(RpcConfig.class, RpcConstant.DEFAULT_CONFIG_PREFIX);
         }catch (Exception e){
             // 配置加载失败，使用默认值
+            System.out.println(e);
             newRpcConfig = new RpcConfig();
         }
         init(newRpcConfig);

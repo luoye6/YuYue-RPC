@@ -1,5 +1,8 @@
 package com.baitiao.yuyuerpc.proxy;
 
+import cn.hutool.aop.proxy.ProxyFactory;
+import com.baitiao.yuyuerpc.RpcApplication;
+
 import java.lang.reflect.Proxy;
 
 /**
@@ -14,10 +17,25 @@ public class ServiceProxyFactory {
      * @param <T>
      * @return
      */
-    public static <T> T getProxy(Class<T> serviceClass) {
+    public static  <T> T getProxy(Class<T> serviceClass) {
+        System.out.println(RpcApplication.getRpcConfig().toString());
+        if(RpcApplication.getRpcConfig().isMock()){
+            return getMockProxy(serviceClass);
+        }
         return (T) Proxy.newProxyInstance(
                 serviceClass.getClassLoader(),
                 new Class[]{serviceClass},
                 new ServiceProxy());
+    }
+
+    /**
+     * 根据服务类获取 Mock 代理对象
+     * @param serviceClass
+     * @return
+     * @param <T>
+     */
+    public static <T> T getMockProxy(Class<T> serviceClass) {
+        return (T) Proxy.newProxyInstance(serviceClass.getClassLoader(), new Class[]{serviceClass},
+        new MockServiceProxy());
     }
 }
