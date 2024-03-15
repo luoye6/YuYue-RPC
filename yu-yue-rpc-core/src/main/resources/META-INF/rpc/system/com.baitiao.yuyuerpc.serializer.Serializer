@@ -1,0 +1,4 @@
+jdk=com.baitiao.yuyuerpc.serializer.JdkSerializer
+hessian=com.baitiao.yuyuerpc.serializer.hessian.HessianSerializer
+Json=com.baitiao.yuyuerpc.serializer.json.JsonSerializer
+kryo=com.baitiao.yuyuerpc.serializer.kryo.KryoSerializer
